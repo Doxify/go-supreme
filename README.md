@@ -18,10 +18,36 @@ This project is currently not ready for release but if you'd like to mess around
 with it here's how...
 
 
-**Create a new instance and fetch the latest stock from supreme.**
+**Example usage:**
 ```go
+// Create a new instance and fetch the latest stock from supreme.
 s := CreateNewInstance()
 s.FetchStock()
+
+// Get all products in the "hats" category.
+p := s.Stock.GetProducts("hats")
 ```
+
+## III. Features
+This project is currently at a very early stage and a work in progress. More
+features will be added soon.
+
+1. Fetch latest stock from Supreme
+2. Get products by category
+3. Get products by keyword
+
+
+## IV. Todo
+
+**Planned:**
+- ⚪ Keep track of changes in stock
+- ⚪ Fetch stock at an interval
+- ⚪ Monitor stock by product keyword
+
+**In-progress:**
+- 🟡 Get products by category
+- 🟡 Get products by keyword
+
+
 
 
