@@ -30,6 +30,10 @@ func New() *Supreme {
 	}
 }
 
+func (s *Supreme) Init() {
+	s.FetchStock()
+}
+
 // package gosupreme
 
 // func (s *Supreme) GetAllCategoryProducts(category string) *Products {

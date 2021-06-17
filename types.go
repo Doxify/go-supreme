@@ -1,33 +1,5 @@
 package gosupreme
 
-type Categories struct {
-	Accessories  Products `json:"Accessories"`
-	Bags         Products `json:"Bags"`
-	Skate        Products `json:"Skate"`
-	TopsSweaters Products `json:"Tops/Sweaters"`
-	Pants        Products `json:"Pants"`
-	Jackets      Products `json:"Jackets"`
-	Hats         Products `json:"Hats"`
-	Sweatshirts  Products `json:"Sweatshirts"`
-	Shirts       Products `json:"Shirts"`
-	Shorts       Products `json:"Shorts"`
-	New          Products `json:"new"`
-}
-
-type Product struct {
-	Name         string `json:"name"`
-	ID           int    `json:"id"`
-	ImageURL     string `json:"image_url"`
-	ImageURLHi   string `json:"image_url_hi"`
-	Price        int    `json:"price"`
-	SalePrice    int    `json:"sale_price"`
-	NewItem      bool   `json:"new_item"`
-	Position     int    `json:"position"`
-	CategoryName string `json:"category_name"`
-}
-
-type Products []*Product
-
 type Style struct {
 	Styles                  Styles      `json:"styles"`
 	Description             string      `json:"description"`
