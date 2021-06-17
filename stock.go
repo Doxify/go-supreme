@@ -1,6 +1,7 @@
-package supreme
+package gosupreme
 
 import (
+	"net/http"
 	"reflect"
 	"strings"
 )
@@ -12,33 +13,27 @@ type Stock struct {
 	LastMobileAPIUpdate string     `json:"last_mobile_api_update"`
 }
 
-type Categories struct {
-	Accessories  Products `json:"Accessories"`
-	Bags         Products `json:"Bags"`
-	Skate        Products `json:"Skate"`
-	TopsSweaters Products `json:"Tops/Sweaters"`
-	Pants        Products `json:"Pants"`
-	Jackets      Products `json:"Jackets"`
-	Hats         Products `json:"Hats"`
-	Sweatshirts  Products `json:"Sweatshirts"`
-	Shirts       Products `json:"Shirts"`
-	Shorts       Products `json:"Shorts"`
-	New          Products `json:"new"`
-}
+func (s *Supreme) FetchStock() error {
+	s.l.Println("Fetching latest stock from supreme.")
 
-type Product struct {
-	Name         string `json:"name"`
-	ID           int    `json:"id"`
-	ImageURL     string `json:"image_url"`
-	ImageURLHi   string `json:"image_url_hi"`
-	Price        int    `json:"price"`
-	SalePrice    int    `json:"sale_price"`
-	NewItem      bool   `json:"new_item"`
-	Position     int    `json:"position"`
-	CategoryName string `json:"category_name"`
-}
+	// create a new http GET request
+	req, err := http.NewRequest("GET", StockURL, nil)
+	if err != nil {
+		return err
+	}
 
-type Products []*Product
+	// make the http request and save its response
+	var stock *Stock
+	err = s.makeRequest(req, &stock)
+	if err != nil {
+		return err
+	}
+
+	// update stock
+	s.Stock = stock
+	s.l.Printf("Fetched stock with release date '%s'.\n", s.Stock.ReleaseDate)
+	return nil
+}
 
 func (s *Stock) getProductsByCategory(category string) *Products {
 	fields := reflect.TypeOf(s.Categories)
