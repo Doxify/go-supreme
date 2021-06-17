@@ -45,8 +45,7 @@ features will be added soon.
 - ⚪ Monitor stock by product keyword
 
 **In-progress:**
-- 🟡 Get products by category
-- 🟡 Get products by keyword
+- 🟡 Add product styles
 
 
 
