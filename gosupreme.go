@@ -23,7 +23,7 @@ func New() *Supreme {
 	return &Supreme{
 		Stock:  nil,
 		Styles: nil,
-		l:      log.New(os.Stdout, "gosupreme ", log.LstdFlags),
+		l:      log.New(os.Stdout, "gosupreme ", log.Ldate|log.Lmicroseconds),
 		c: &http.Client{
 			Timeout: time.Minute,
 		},
@@ -33,20 +33,3 @@ func New() *Supreme {
 func (s *Supreme) Init() {
 	s.FetchStock()
 }
-
-// package gosupreme
-
-// func (s *Supreme) GetAllCategoryProducts(category string) *Products {
-// 	s.Client.Logger.Printf("Fetching all products from the '%s' category...", category)
-// 	return s.Stock.getProductsByCategory(category)
-// }
-
-// func (s *Supreme) GetAllProducts(keyword string) *Products {
-// 	s.Client.Logger.Printf("Fetching all products with the '%s' keyword...", keyword)
-// 	return s.Stock.getProductsByKeyword(keyword)
-// }
-
-// func (s *Supreme) LookupCategoryProduct(keyword string, category string) *Products {
-// 	s.Client.Logger.Printf("Fetching all products with the '%s' keyword from the '%s' category...", keyword, category)
-// 	return s.Stock.getProductsByCategoryAndKeyword(keyword, category)
-// }
