@@ -20,12 +20,28 @@ with it here's how...
 
 **Example usage:**
 ```go
-// Create a new instance and fetch the latest stock from supreme.
-s := CreateNewInstance()
-s.FetchStock()
+// Create a new instance and initialize it.
+s := gosupreme.New()
+s.Init()
 
-// Get all products in the "hats" category.
-p := s.Stock.GetProducts("hats")
+// Get all products that have the keyword "6-panel" in their name
+p, err := s.GetProductsByKeyword("6-panel")
+if err != nil {
+  log.Fatal(err)
+  return
+}
+
+// Loop through all of those products and fetch their product data (styles, sizes, etc...) and print it to console.
+for _, product := range *p {
+  fmt.Print(product)
+  d, err := s.FetchProductData(product)
+  if err != nil {
+    log.Fatal(err)
+    return
+  }
+  fmt.Println(d)
+}
+
 ```
 
 ## III. Features
@@ -35,6 +51,7 @@ features will be added soon.
 1. Fetch latest stock from Supreme
 2. Get products by category
 3. Get products by keyword
+4. Get all product styles
 
 
 ## IV. Todo
@@ -42,11 +59,7 @@ features will be added soon.
 **Planned:**
 - ⚪ Keep track of changes in stock
 - ⚪ Fetch stock at an interval
-- ⚪ Monitor stock by product keyword
 
 **In-progress:**
-- 🟡 Add product styles
-
-
-
-
+- 🟡 Make the API easier to use
+- 🟡 Monitor stock by product keyword
