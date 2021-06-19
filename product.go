@@ -20,6 +20,10 @@ type Product struct {
 
 type Products []*Product
 
+func (p *Product) String() string {
+	return fmt.Sprintf("Name: %s\nID: %d\nCategory: %s\n", p.Name, p.ID, p.CategoryName)
+}
+
 // Returns a list of all products in a category.
 func (s *Supreme) GetProductsByCategory(category string) (*Products, error) {
 
