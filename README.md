@@ -41,9 +41,37 @@ for _, product := range *p {
   }
   fmt.Println(d)
 }
-
 ```
 
+**Output of the code above:**
+```shell
+gosupreme 2021/06/18 19:54:53.722725 Fetching latest stock from supreme.
+gosupreme 2021/06/18 19:54:54.072299 Fetched stock with release date '06/17/2021'.
+Name: Warp Jacquard Logos Denim 6-Panel
+ID: 174325
+Category: Hats
+gosupreme 2021/06/18 19:54:54.072342 Fetching product data for 174325 (Warp Jacquard Logos Denim 6-Panel)
+Description: All cotton 14 oz. denim 6-Panel hat with jacquard logo pattern and self strap closure. Embroidered logo on front.
+
+Name: Liberty Floral 6-Panel
+ID: 174278
+Category: Hats
+gosupreme 2021/06/18 19:54:54.120455 Fetching product data for 174278 (Liberty Floral 6-Panel)
+Description: All cotton 6-Panel hat with self strap closure and embroidered logo on front.
+
+Name: Vampire Boy 6-Panel
+ID: 174284
+Category: Hats
+gosupreme 2021/06/18 19:54:54.208470 Fetching product data for 174284 (Vampire Boy 6-Panel)
+Description: Wool blend 6-Panel hat with snap closure. Embroidered graphic on front and embroidered logo on back. Original artwork by Sean Cliver.
+
+Name: Warp Jacquard Logos Denim 6-Panel
+ID: 174325
+Category: Hats
+gosupreme 2021/06/18 19:54:54.251057 Fetching product data for 174325 (Warp Jacquard Logos Denim 6-Panel)
+Description: All cotton 14 oz. denim 6-Panel hat with jacquard logo pattern and self strap closure. Embroidered logo on front.
+
+```
 ## III. Features
 This project is currently at a very early stage and a work in progress. More
 features will be added soon.
