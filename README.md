@@ -21,33 +21,33 @@ with it here's how...
 **Example usage:**
 ```go
 // Create a new instance of gosupreme and initialize it.
-	s := gosupreme.New()
-	s.Init()
+s := gosupreme.New()
+s.Init()
 
-	// Get all products that have the keyword 'Boxer Briefs (2 Pack)' in their
-	// name.
-	products, _ := s.GetProductsByKeyword("Boxer Briefs (2 Pack)")
+// Get all products that have the keyword 'Boxer Briefs (2 Pack)' in their
+// name.
+products, _ := s.GetProductsByKeyword("Boxer Briefs (2 Pack)")
 
-	// Select the first one from the list of returned products
-	var product = (*products)[0]
+// Select the first one from the list of returned products
+var product = (*products)[0]
 
-	// Fetch that products data (styles, sizes, etc...)
-	s.FetchProductData(product)
+// Fetch that products data (styles, sizes, etc...)
+s.FetchProductData(product)
 
-	// Get all of the product's styles (these are the different colors/variants
-	// the products come in)
-	styles, _ := s.GetAllStyles(product)
+// Get all of the product's styles (these are the different colors/variants
+// the products come in)
+styles, _ := s.GetAllStyles(product)
 
-	// Get a style that is the color 'purple'
-	style, _ := styles.GetStyleByColor("purple")
+// Get a style that is the color 'purple'
+style, _ := styles.GetStyleByColor("purple")
 
-	// Get the size that is 'medium'
-	size, _ := style.GetSize("medium")
+// Get the size that is 'medium'
+size, _ := style.GetSize("medium")
 
-	// Print the product, style, and size to console.
-	fmt.Println(product)
-	fmt.Println(style)
-	fmt.Println(size)
+// Print the product, style, and size to console.
+fmt.Println(product)
+fmt.Println(style)
+fmt.Println(size)
 ```
 
 **Output of the code above:**
@@ -58,7 +58,7 @@ with it here's how...
 Product: Name: Supreme®/Hanes® Boxer Briefs (2 Pack)
 ID: 173930
 Category: Accessories
- Price:28
+Price:28
 
 Style:
 ID: 29598
