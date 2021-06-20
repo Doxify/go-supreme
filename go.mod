@@ -1,3 +1,3 @@
-module github.com/doxify/supreme-go-api
+module github.com/doxify/gosupreme
 
 go 1.16
