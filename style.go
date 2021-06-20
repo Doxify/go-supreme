@@ -1,5 +1,7 @@
 package gosupreme
 
+import "fmt"
+
 // Represents a product's style
 type Style struct {
 	ID                    int         `json:"id"`
@@ -30,6 +32,10 @@ type Size struct {
 
 type Sizes []*Size
 
+func (s *Style) String() string {
+	return fmt.Sprintf("ID: %d\nColor: %s", s.ID, s.Name)
+}
+
 // Returns a product's styles
 func (s *Supreme) GetAllStyles(p *Product) (*Styles, error) {
 	// check if the style is cached
@@ -45,5 +51,3 @@ func (s *Supreme) GetAllStyles(p *Product) (*Styles, error) {
 
 	return &pd.Styles, nil
 }
-
-// func (s *Supreme) GetStyle

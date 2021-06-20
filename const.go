@@ -10,6 +10,7 @@ const (
 // This registry represents all valid supreme product categories.
 var ProductCategory = newCategoryRegistry()
 
+// Creates a new product registry with all valid product categories.
 func newCategoryRegistry() *categoryRegistry {
 	return &categoryRegistry{
 		Accessories:  "accessories",

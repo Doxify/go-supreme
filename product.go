@@ -7,21 +7,38 @@ import (
 )
 
 type Product struct {
-	Name         string `json:"name"`
-	ID           int    `json:"id"`
-	ImageURL     string `json:"image_url"`
-	ImageURLHi   string `json:"image_url_hi"`
-	Price        int    `json:"price"`
-	SalePrice    int    `json:"sale_price"`
-	NewItem      bool   `json:"new_item"`
-	Position     int    `json:"position"`
-	CategoryName string `json:"category_name"`
+	name         string `json:"name"`
+	id           int    `json:"id"`
+	imageURL     string `json:"image_url"`
+	imageURLHi   string `json:"image_url_hi"`
+	price        int    `json:"price"`
+	salePrice    int    `json:"sale_price"`
+	newItem      bool   `json:"new_item"`
+	position     int    `json:"position"`
+	categoryName string `json:"category_name"`
 }
 
 type Products []*Product
 
+func (p *Product) GetName() string {
+	return p.name
+}
+
+func (p *Product) GetID() int {
+	return p.id
+}
+
+func (p *Product) GetPrice() int {
+	// Supreme formats their price weirdly
+	return p.price / 100
+}
+
+func (p *Product) GetCategory() string {
+	return p.categoryName
+}
+
 func (p *Product) String() string {
-	return fmt.Sprintf("Name: %s\nID: %d\nCategory: %s\n", p.Name, p.ID, p.CategoryName)
+	return fmt.Sprintf("Name: %s\nID: %d\nCategory: %s\n Price:%d\n", p.GetName(), p.GetID(), p.GetCategory(), p.GetPrice())
 }
 
 // Returns a list of all products in a category.
