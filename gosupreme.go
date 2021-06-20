@@ -11,8 +11,8 @@ type Supreme struct {
 	// Stock holds Supreme's product inventory
 	Stock *Stock
 
-	// Styles holds Supreme's product styles
-	Styles *Styles
+	// Data caches previously fetched Supreme product data
+	Data map[int]*Data
 
 	l *log.Logger
 	c *http.Client
@@ -21,9 +21,9 @@ type Supreme struct {
 // Creates a new gosupreme instance
 func New() *Supreme {
 	return &Supreme{
-		Stock:  nil,
-		Styles: nil,
-		l:      log.New(os.Stdout, "gosupreme ", log.Ldate|log.Lmicroseconds),
+		Stock: nil,
+		Data:  make(map[int]*Data),
+		l:     log.New(os.Stdout, "[gosupreme] ", log.Ldate|log.Lmicroseconds),
 		c: &http.Client{
 			Timeout: time.Minute,
 		},
