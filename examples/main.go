@@ -7,6 +7,7 @@ import (
 )
 
 func main() {
+	// Create a new instance of gosupreme and initialize it.
 	s := gosupreme.New()
 	s.Init()
 
@@ -30,6 +31,7 @@ func main() {
 	// Get the size that is 'medium'
 	size, _ := style.GetSize("medium")
 
+	// Print the product, style, and size to console.
 	fmt.Println(product)
 	fmt.Println(style)
 	fmt.Println(size)

@@ -20,57 +20,53 @@ with it here's how...
 
 **Example usage:**
 ```go
-// Create a new instance and initialize it.
-s := gosupreme.New()
-s.Init()
+// Create a new instance of gosupreme and initialize it.
+	s := gosupreme.New()
+	s.Init()
 
-// Get all products that have the keyword "6-panel" in their name
-p, err := s.GetProductsByKeyword("6-panel")
-if err != nil {
-  log.Fatal(err)
-  return
-}
+	// Get all products that have the keyword 'Boxer Briefs (2 Pack)' in their
+	// name.
+	products, _ := s.GetProductsByKeyword("Boxer Briefs (2 Pack)")
 
-// Loop through all of those products and fetch their product data (styles, sizes, etc...) and print it to console.
-for _, product := range *p {
-  fmt.Print(product)
-  d, err := s.FetchProductData(product)
-  if err != nil {
-    log.Fatal(err)
-    return
-  }
-  fmt.Println(d)
-}
+	// Select the first one from the list of returned products
+	var product = (*products)[0]
+
+	// Fetch that products data (styles, sizes, etc...)
+	s.FetchProductData(product)
+
+	// Get all of the product's styles (these are the different colors/variants
+	// the products come in)
+	styles, _ := s.GetAllStyles(product)
+
+	// Get a style that is the color 'purple'
+	style, _ := styles.GetStyleByColor("purple")
+
+	// Get the size that is 'medium'
+	size, _ := style.GetSize("medium")
+
+	// Print the product, style, and size to console.
+	fmt.Println(product)
+	fmt.Println(style)
+	fmt.Println(size)
 ```
 
 **Output of the code above:**
 ```shell
-gosupreme 2021/06/18 19:54:53.722725 Fetching latest stock from supreme.
-gosupreme 2021/06/18 19:54:54.072299 Fetched stock with release date '06/17/2021'.
-Name: Warp Jacquard Logos Denim 6-Panel
-ID: 174325
-Category: Hats
-gosupreme 2021/06/18 19:54:54.072342 Fetching product data for 174325 (Warp Jacquard Logos Denim 6-Panel)
-Description: All cotton 14 oz. denim 6-Panel hat with jacquard logo pattern and self strap closure. Embroidered logo on front.
+[gosupreme] 2021/06/20 12:31:04.812178 Fetching latest stock from supreme.
+[gosupreme] 2021/06/20 12:31:05.178247 Fetched stock with release date '06/17/2021'.
+[gosupreme] 2021/06/20 12:31:05.178287 Fetching product data for 173930 (Supreme®/Hanes® Boxer Briefs (2 Pack))
+Product: Name: Supreme®/Hanes® Boxer Briefs (2 Pack)
+ID: 173930
+Category: Accessories
+ Price:28
 
-Name: Liberty Floral 6-Panel
-ID: 174278
-Category: Hats
-gosupreme 2021/06/18 19:54:54.120455 Fetching product data for 174278 (Liberty Floral 6-Panel)
-Description: All cotton 6-Panel hat with self strap closure and embroidered logo on front.
+Style:
+ID: 29598
+Color: Purple
 
-Name: Vampire Boy 6-Panel
-ID: 174284
-Category: Hats
-gosupreme 2021/06/18 19:54:54.208470 Fetching product data for 174284 (Vampire Boy 6-Panel)
-Description: Wool blend 6-Panel hat with snap closure. Embroidered graphic on front and embroidered logo on back. Original artwork by Sean Cliver.
-
-Name: Warp Jacquard Logos Denim 6-Panel
-ID: 174325
-Category: Hats
-gosupreme 2021/06/18 19:54:54.251057 Fetching product data for 174325 (Warp Jacquard Logos Denim 6-Panel)
-Description: All cotton 14 oz. denim 6-Panel hat with jacquard logo pattern and self strap closure. Embroidered logo on front.
-
+Size:
+Name: Medium
+ID: 85957
 ```
 ## III. Features
 This project is currently at a very early stage and a work in progress. More
