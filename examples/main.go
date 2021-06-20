@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	gosupreme "github.com/doxify/supreme-go-api"
+	gosupreme "github.com/doxify/gosupreme"
 )
 
 func main() {
@@ -12,14 +12,13 @@ func main() {
 
 	s.GetProductsByCategory(gosupreme.ProductCategory.Accessories)
 
-	p, err := s.GetProductsByKeyword("6-panel")
+	p, err := s.GetProductsByKeyword("Brooks")
 	if err != nil {
 		log.Fatal(err)
 		return
 	}
 
 	for _, product := range *p {
-		// fmt.Print(product)
 		s.FetchProductData(product)
 		s.FetchProductData(product)
 	}
