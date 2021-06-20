@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 
 	gosupreme "github.com/doxify/supreme-go-api"
@@ -18,13 +17,12 @@ func main() {
 	}
 
 	for _, product := range *p {
-		fmt.Print(product)
-		d, err := s.FetchProductData(product)
-		if err != nil {
-			log.Fatal(err)
-			return
-		}
-		fmt.Println(d)
+		// fmt.Print(product)
+		s.FetchProductData(product)
+		s.FetchProductData(product)
+		// fmt.Println(d)
+		// fmt.Println(d2)
+
 	}
 
 }
