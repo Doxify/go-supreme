@@ -7,34 +7,34 @@ import (
 )
 
 type Product struct {
-	name         string `json:"name"`
-	id           int    `json:"id"`
-	imageURL     string `json:"image_url"`
-	imageURLHi   string `json:"image_url_hi"`
-	price        int    `json:"price"`
-	salePrice    int    `json:"sale_price"`
-	newItem      bool   `json:"new_item"`
-	position     int    `json:"position"`
-	categoryName string `json:"category_name"`
+	Name         string `json:"name"`
+	ID           int    `json:"id"`
+	ImageURL     string `json:"image_url"`
+	ImageURLHi   string `json:"image_url_hi"`
+	Price        int    `json:"price"`
+	SalePrice    int    `json:"sale_price"`
+	NewItem      bool   `json:"new_item"`
+	Position     int    `json:"position"`
+	CategoryName string `json:"category_name"`
 }
 
 type Products []*Product
 
 func (p *Product) GetName() string {
-	return p.name
+	return p.Name
 }
 
 func (p *Product) GetID() int {
-	return p.id
+	return p.ID
 }
 
 func (p *Product) GetPrice() int {
 	// Supreme formats their price weirdly
-	return p.price / 100
+	return p.Price / 100
 }
 
 func (p *Product) GetCategory() string {
-	return p.categoryName
+	return p.CategoryName
 }
 
 func (p *Product) String() string {
@@ -84,7 +84,7 @@ func (s *Supreme) GetProductsByKeyword(keyword string) (*Products, error) {
 		// loop through all products in a category
 		for _, product := range products {
 			// find products which have the keyword in their names
-			if strings.Contains(strings.ToLower(product.Name), strings.ToLower(keyword)) {
+			if strings.Contains(strings.ToLower(product.GetName()), strings.ToLower(keyword)) {
 				matchedProducts = append(matchedProducts, product)
 			}
 		}
@@ -106,7 +106,7 @@ func (s *Supreme) GetProductsByKeywordAndCategory(keyword string, category strin
 
 	// finding products in the category that match the keyword
 	for _, p := range *products {
-		if strings.Contains(strings.ToLower(p.Name), strings.ToLower(keyword)) {
+		if strings.Contains(strings.ToLower(p.GetName()), strings.ToLower(keyword)) {
 			matchedProducts = append(matchedProducts, p)
 		}
 	}
