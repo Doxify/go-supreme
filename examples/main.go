@@ -10,6 +10,8 @@ func main() {
 	s := gosupreme.New()
 	s.Init()
 
+	s.GetProductsByCategory(gosupreme.ProductCategory.Accessories)
+
 	p, err := s.GetProductsByKeyword("6-panel")
 	if err != nil {
 		log.Fatal(err)
@@ -20,9 +22,6 @@ func main() {
 		// fmt.Print(product)
 		s.FetchProductData(product)
 		s.FetchProductData(product)
-		// fmt.Println(d)
-		// fmt.Println(d2)
-
 	}
 
 }
