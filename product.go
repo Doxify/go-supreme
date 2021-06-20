@@ -38,7 +38,7 @@ func (p *Product) GetCategory() string {
 }
 
 func (p *Product) String() string {
-	return fmt.Sprintf("Name: %s\nID: %d\nCategory: %s\n Price:%d\n", p.GetName(), p.GetID(), p.GetCategory(), p.GetPrice())
+	return fmt.Sprintf("Product: Name: %s\nID: %d\nCategory: %s\n Price:%d\n", p.GetName(), p.GetID(), p.GetCategory(), p.GetPrice())
 }
 
 // Returns a list of all products in a category.
