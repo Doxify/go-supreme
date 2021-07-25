@@ -37,7 +37,8 @@ func (s *Supreme) FetchProductData(p *Product) (*Data, error) {
 	s.l.Printf("Fetching product data for %d (%s)\n", p.ID, p.Name)
 
 	// create a new http GET request
-	req, err := http.NewRequest("GET", fmt.Sprintf(DataURL, p.ID), nil)
+	req, err := http.NewRequest("GET", fmt.Sprintf(DATA_URL, p.ID), nil)
+
 	if err != nil {
 		return nil, err
 	}

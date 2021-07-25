@@ -91,6 +91,10 @@ func (s *Supreme) GetProductsByKeyword(keyword string) (*Products, error) {
 
 	}
 
+	if len(matchedProducts) == 0 {
+		return nil, fmt.Errorf("no products found with keyword: %s", keyword)
+	}
+
 	return &matchedProducts, nil
 }
 

@@ -1,19 +1,30 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 
 	gosupreme "github.com/doxify/gosupreme"
 )
 
 func main() {
-	// Create a new instance of gosupreme and initialize it.
+	// Parse command line flags
+	keywordPtr := flag.String("keyword", "", "Keyword that must be in the product name")
+	colorPtr := flag.String("color", "", "Color of a product")
+	sizePtr := flag.String("size", "", "Size of a product")
+	flag.Parse()
+	
+  // Create a new instance of gosupreme and initialize it.
 	s := gosupreme.New()
 	s.Init()
 
 	// Get all products that have the keyword 'Boxer Briefs (2 Pack)' in their
 	// name.
-	products, _ := s.GetProductsByKeyword("Boxer Briefs (2 Pack)")
+  products, err := s.GetProductsByKeyword(*keywordPtr)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
 
 	// Select the first one from the list of returned products
 	var product = (*products)[0]
@@ -26,11 +37,11 @@ func main() {
 	styles, _ := s.GetAllStyles(product)
 
 	// Get a style that is the color 'purple'
-	style, _ := styles.GetStyleByColor("purple")
+	style, _ := styles.GetStyleByColor(*colorPtr)
 
 	// Get the size that is 'medium'
-	size, _ := style.GetSize("medium")
-
+	size, _ := style.GetSize(*sizePtr)
+  
 	// Print the product, style, and size to console.
 	fmt.Println(product)
 	fmt.Println(style)
