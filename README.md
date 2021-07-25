@@ -20,7 +20,7 @@ with it here's how...
 
 **Example usage:**
 ```go
-// Create a new instance of gosupreme and initialize it.
+  // Create a new instance of gosupreme and initialize it.
 	s := gosupreme.New()
 	s.Init()
 
@@ -58,7 +58,7 @@ with it here's how...
 Product: Name: Supreme®/Hanes® Boxer Briefs (2 Pack)
 ID: 173930
 Category: Accessories
- Price:28
+Price:28
 
 Style:
 ID: 29598

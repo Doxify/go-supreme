@@ -38,6 +38,7 @@ func (s *Supreme) FetchProductData(p *Product) (*Data, error) {
 
 	// create a new http GET request
 	req, err := http.NewRequest("GET", fmt.Sprintf(DATA_URL, p.ID), nil)
+
 	if err != nil {
 		return nil, err
 	}

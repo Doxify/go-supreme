@@ -13,14 +13,14 @@ func main() {
 	colorPtr := flag.String("color", "", "Color of a product")
 	sizePtr := flag.String("size", "", "Size of a product")
 	flag.Parse()
-
-	// Create a new instance of gosupreme and initialize it.
+	
+  // Create a new instance of gosupreme and initialize it.
 	s := gosupreme.New()
 	s.Init()
 
 	// Get all products that have the keyword 'Boxer Briefs (2 Pack)' in their
 	// name.
-	products, err := s.GetProductsByKeyword(*keywordPtr)
+  products, err := s.GetProductsByKeyword(*keywordPtr)
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -41,7 +41,7 @@ func main() {
 
 	// Get the size that is 'medium'
 	size, _ := style.GetSize(*sizePtr)
-
+  
 	// Print the product, style, and size to console.
 	fmt.Println(product)
 	fmt.Println(style)
