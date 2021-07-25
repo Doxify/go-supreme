@@ -15,4 +15,5 @@
 # vendor/
 
 .idea
-supreme-go-api
+.vscode
+gosupreme
