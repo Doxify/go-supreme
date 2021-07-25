@@ -16,7 +16,7 @@ func (s *Supreme) FetchStock() error {
 	s.l.Println("Fetching latest stock from supreme.")
 
 	// create a new http GET request
-	req, err := http.NewRequest("GET", StockURL, nil)
+	req, err := http.NewRequest("GET", STOCK_URL, nil)
 	if err != nil {
 		return err
 	}

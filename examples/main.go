@@ -13,7 +13,11 @@ func main() {
 
 	// Get all products that have the keyword 'Boxer Briefs (2 Pack)' in their
 	// name.
-	products, _ := s.GetProductsByKeyword("Boxer Briefs (2 Pack)")
+	products, err := s.GetProductsByKeyword("Boxer Briefs (2 Pack)")
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
 
 	// Select the first one from the list of returned products
 	var product = (*products)[0]

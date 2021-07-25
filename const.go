@@ -2,8 +2,8 @@ package gosupreme
 
 // Endpoints
 const (
-	StockURL = "https://supremenewyork.com/mobile_stock.json"
-	DataURL  = "https://supremenewyork.com/shop/%d.json"
+	STOCK_URL = "https://supremenewyork.com/mobile_stock.json"
+	DATA_URL  = "https://supremenewyork.com/shop/%d.json"
 )
 
 // Product categories registry.
