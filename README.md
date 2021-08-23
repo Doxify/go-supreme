@@ -1,7 +1,7 @@
 <p align="center">
-  <h2 align="center">supreme-go-api</h2>
+  <h2 align="center">GoSupreme</h2>
   <p align="center"> 
-    An unofficial go api for supremenewyork.com
+    Wrapper package for supremenewyork.com written in Go
   </p>
 <!--   <p align="center"> 
     <h3 align="center">⚠️ WORK IN PROGRESS ⚠️</h3>
